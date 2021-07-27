@@ -1,0 +1,170 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "DDP",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#function-call"
+		},
+		{
+			"include": "#function-definition"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#consts"
+		},
+		{
+			"include": "#type"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#types-without-Artikel"
+		},
+		{
+			"include": "#identifiers"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "variable.name"
+				}
+			}
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line",
+					"match": "(\/\/.*)"
+				},
+				{
+					"begin": "/\\*",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.ddp"
+						}
+					},
+					"end": "\\*/",
+					"name": "comment.block.ddp"
+				}
+			]
+		},
+		"numbers": {
+			"name": "keyword.other.unit.suffix.integer.ddp",
+			"match": "-?([0-9]+,?[0-9]*)"
+		},
+		"consts": {
+			"name": "constant.numeric.ddp",
+			"match": "\\b(pi|e|tau|phi)\\b"
+		},
+		"keywords": {
+			"name": "keyword.control.ddp",
+			"match": "\\b(ist|sind|an|wenn|dann|sonst|aber|für|jede|solange|mache|macht|zurück|gib|vom|von|bis)\\b"
+		},
+		"function-call": {
+			"beginCaptures": {
+				"1":{
+					"name": "support.function.ddp"
+				}
+			},
+			"begin": "(\\w+)\\(",
+			"end": "\\)",
+			"patterns": [
+				{
+					"include": "$self"
+				}
+			]
+		},
+		"function-definition": {
+			"begin": "^(die Funktion)",
+			"beginCaptures": {
+				"1": {
+					"name": "support.type.ddp"
+				}
+			},
+			"end": "(macht):",
+			"endCaptures": {
+				"1": {
+					"name": "keyword.control.ddp"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#function-call"
+				},
+				{
+					"include": "#function-parameters"
+				},
+				{
+					"include": "#function-type"
+				}
+			]
+		},
+		"function-type": {
+			"match": "(vom) Typ \\bZahl|Kommazahl|Boolean|Zeichen|Zeichenkette|Zahlen|Kommazahlen|Zeichenketten\\b",
+			"name": "support.type",
+			"captures": {
+				"1": {
+					"name": "keyword.control.ddp"
+				}
+			}
+		},
+		"operators": {
+			"name": "keyword.operator.new.ddp",
+			"match": "\\b(oder|und|nicht|plus|minus|mal|durch|modulo|hoch|wurzel von|nach links verschoben|nach rechts verschoben|logisch|gleich|ungleich|kleiner als|kleiner als, oder|größer als, oder)\\b"
+		},
+		"type": {
+			"patterns": [
+				{
+					"name": "support.type.ddp",
+					"match": "\\b(die Zahl|die Kommazahl|der Boolean|das Zeichen|die Zeichenkette|die Zahlen|die Kommazahlen|die Boolean|die Zeichen|die Zeichenketten)\\b\\s(\\w+)",
+					"captures": {
+						"2": {
+							"name": "variable.name.ddp"
+						}
+					}
+				}
+			]
+		},
+		"types-without-Artikel": {
+			"match": "\\b(Zahl|Kommazahl|Boolean|Zeichen|Zeichenkette|Zahlen|Kommazahlen|Zeichenketten|Typ)\\b\\s(\\w+)",
+			"captures": {
+				"1": {
+					"name": "support.type.ddp"
+				},
+				"2": {
+					"name": "variable.name.ddp"
+				}
+			}
+		},
+		"identifiers": {
+			"match": "\\w+",
+			"name": "variable.name.ddp"
+		},
+		"strings": {
+			"name": "string.quoted.double.ddp",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.ddp",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.ddp"
+}

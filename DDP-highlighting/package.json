@@ -1,0 +1,26 @@
+{
+    "name": "ddp-highlighting",
+    "displayName": "DDP Highlighting",
+    "description": "Syntax highlighting for the DDP language.",
+    "version": "0.0.1",
+    "author": "NotLe0n",
+    "engines": {
+        "vscode": "^1.58.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "ddp",
+            "aliases": ["DDP", "ddp"],
+            "extensions": [".ddp"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "ddp",
+            "scopeName": "source.ddp",
+            "path": "./syntaxes/ddp.tmLanguage.json"
+        }]
+    }
+}

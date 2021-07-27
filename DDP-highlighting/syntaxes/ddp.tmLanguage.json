@@ -18,29 +18,16 @@
 			"include": "#operators"
 		},
 		{
-			"include": "#numbers"
-		},
-		{
-			"include": "#consts"
-		},
-		{
 			"include": "#type"
 		},
 		{
-			"include": "#strings"
+			"include": "#literals"
 		},
 		{
 			"include": "#types-without-Artikel"
 		},
 		{
 			"include": "#identifiers"
-		},
-		{
-			"captures": {
-				"1": {
-					"name": "variable.name"
-				}
-			}
 		}
 	],
 	"repository": {
@@ -62,22 +49,22 @@
 				}
 			]
 		},
-		"numbers": {
-			"name": "keyword.other.unit.suffix.integer.ddp",
-			"match": "-?([0-9]+,?[0-9]*)"
-		},
-		"consts": {
-			"name": "constant.numeric.ddp",
-			"match": "\\b(pi|e|tau|phi)\\b"
-		},
 		"keywords": {
-			"name": "keyword.control.ddp",
-			"match": "\\b(ist|sind|an|wenn|dann|sonst|aber|für|jede|solange|mache|macht|zurück|gib|vom|von|bis)\\b"
+			"patterns": [
+				{
+					"name": "keyword.control.ddp",
+					"match": "\\b(wenn|dann|sonst|aber|für|jede|solange|mache|macht|zurück|gib|vom|von|bis|mit schrittgröße)\\b"
+				},
+				{
+					"name": "keyword.other.ddp",
+					"match": "\\b(ist|sind|an|der Stelle)\\b"
+				}
+			]
 		},
 		"function-call": {
 			"beginCaptures": {
 				"1":{
-					"name": "support.function.ddp"
+					"name": "entity.name.function.ddp"
 				}
 			},
 			"begin": "(\\w+)\\(",
@@ -123,8 +110,31 @@
 			}
 		},
 		"operators": {
-			"name": "keyword.operator.new.ddp",
-			"match": "\\b(oder|und|nicht|plus|minus|mal|durch|modulo|hoch|wurzel von|nach links verschoben|nach rechts verschoben|logisch|gleich|ungleich|kleiner als|kleiner als, oder|größer als, oder)\\b"
+			"patterns": [
+				{
+					"name": "keyword.operator.new.ddp",
+					"match": "\\b(oder|und|nicht|plus|minus|mal|durch|modulo|hoch|. wurzel von|logisch|kontra|gleich|ungleich|kleiner als|größer als|kleiner als, oder|größer als, oder|ln|Betrag)\\b"
+				},
+				{
+					"name": "keyword.operator.new.ddp",
+					"match": "der \\b(Sinus|Kosinus|Tangens|Arkussinus|Arkuskosinus|Arkustangens|Hyperbelsinus|Hyperbelkosinus|Hyperbeltangens)\\b"
+				},
+				{"include": "#bitshift-operator"}
+			]
+		},
+		"bitshift-operator": {
+			"match": "(um) \\d+ (bit nach (?:links|rechts) verschoben)",
+			"captures": {
+				"0": {
+					"name": "constant.numeric.ddp"
+				},
+				"1": {
+					"name": "keyword.operator.new.ddp"
+				},
+				"2": {
+					"name": "keyword.operator.new.ddp"
+				}
+			}
 		},
 		"type": {
 			"patterns": [
@@ -154,14 +164,30 @@
 			"match": "\\w+",
 			"name": "variable.name.ddp"
 		},
-		"strings": {
-			"name": "string.quoted.double.ddp",
-			"begin": "\"",
-			"end": "\"",
+		"literals": {
 			"patterns": [
 				{
-					"name": "constant.character.escape.ddp",
-					"match": "\\\\."
+					"name": "string.quoted.double.ddp",
+					"begin": "\"",
+					"end": "\""
+				},
+				{
+					"name": "string.quoted.single.ddp",
+					"begin": "'",
+					"end": "'"
+				},
+				{
+					"name": "constant.language.boolean.ddp",
+					"match": "wahr|falsch"
+				},
+				{
+					
+					"name": "constant.numeric.ddp",
+					"match": "-?(\\d+,?\\d*)"
+				},
+				{
+					"name": "constant.numeric.ddp",
+					"match": "\\b(pi|e|tau|phi)\\b"
 				}
 			]
 		}

@@ -56,6 +56,15 @@
 					"match": "\\b(wenn|dann|sonst|aber|für|jede|solange|mache|macht|zurück|gib|vom|von|bis|mit schrittgröße)\\b"
 				},
 				{
+					"name": "meta.preprocessor",
+					"match": "binde (\"\\w+\") ein",
+					"captures": {
+						"1": {
+							"name": "meta.preprocessor.string"
+						}
+					}
+				},
+				{
 					"name": "keyword.other.ddp",
 					"match": "\\b(ist|sind|an|der Stelle)\\b"
 				}

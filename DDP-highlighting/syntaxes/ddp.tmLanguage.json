@@ -110,7 +110,7 @@
 			]
 		},
 		"function-type": {
-			"match": "(vom) Typ \\bZahl|Kommazahl|Boolean|Zeichen|Zeichenkette|Zahlen|Kommazahlen|Zeichenketten\\b",
+			"match": "(vom) Typ \\bZahl|Kommazahl|Boolean|Zeichen|Zeichenkette|Zahlen|Kommazahlen|Zeichenketten|Booleans\\b",
 			"name": "support.type",
 			"captures": {
 				"1": {
@@ -149,7 +149,7 @@
 			"patterns": [
 				{
 					"name": "support.type.ddp",
-					"match": "\\b(die Zahl|die Kommazahl|der Boolean|das Zeichen|die Zeichenkette|die Zahlen|die Kommazahlen|die Boolean|die Zeichen|die Zeichenketten)\\b\\s(\\w+)",
+					"match": "\\b(die Zahl|die Kommazahl|der Boolean|das Zeichen|die Zeichenkette|die Zahlen|die Kommazahlen|die Booleans|die Zeichen|die Zeichenketten)\\b\\s(\\w+)",
 					"captures": {
 						"2": {
 							"name": "variable.name.ddp"
@@ -159,7 +159,7 @@
 			]
 		},
 		"types-without-Artikel": {
-			"match": "\\b(Zahl|Kommazahl|Boolean|Zeichen|Zeichenkette|Zahlen|Kommazahlen|Zeichenketten|Typ)\\b\\s(\\w+)",
+			"match": "\\b(Zahl|Kommazahl|Boolean|Zeichen|Zeichenkette|Zahlen|Kommazahlen|Zeichenketten|Booleans|Typ)\\b\\s(\\w+)",
 			"captures": {
 				"1": {
 					"name": "support.type.ddp"

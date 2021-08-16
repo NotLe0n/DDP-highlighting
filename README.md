@@ -5,5 +5,5 @@ Syntax highlighting for the [DDP Programming Language](https://github.com/NotLe0
 
 ## How to use
 1. Clone the repo
-2. Put the DDP-highlighting into the `<user>/.vscode/extensions` folder
+2. Put the DDP-highlighting folder into the `<user>/.vscode/extensions` folder
 3. Restart VS Code

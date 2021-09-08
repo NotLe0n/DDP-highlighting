@@ -39,11 +39,6 @@
 				},
 				{
 					"begin": "/\\*",
-					"captures": {
-						"0": {
-							"name": "punctuation.definition.comment.ddp"
-						}
-					},
 					"end": "\\*/",
 					"name": "comment.block.ddp"
 				}
@@ -71,12 +66,12 @@
 			]
 		},
 		"function-call": {
+			"begin": "(\\w+)\\(",
 			"beginCaptures": {
 				"1":{
 					"name": "entity.name.function.ddp"
 				}
 			},
-			"begin": "(\\w+)\\(",
 			"end": "\\)",
 			"patterns": [
 				{
@@ -110,11 +105,13 @@
 			]
 		},
 		"function-type": {
-			"match": "(vom) Typ \\bZahl|Kommazahl|Boolean|Zeichen|Zeichenkette|Zahlen|Kommazahlen|Zeichenketten|Booleans\\b",
-			"name": "support.type",
+			"match": "(vom) (Typ \\b(?:Zahl(?:en)?|Kommazahl(?:en)?|Booleans?|Buchstaben?|Texte?)\\b) ",
 			"captures": {
 				"1": {
 					"name": "keyword.control.ddp"
+				},
+				"2": {
+					"name": "support.type.function.ddp"
 				}
 			}
 		},
@@ -125,31 +122,25 @@
 					"match": "\\b(oder|und|nicht|plus|minus|mal|durch|modulo|hoch|. wurzel von|logisch|kontra|gleich|ungleich|kleiner als|größer als|kleiner als, oder|größer als, oder|ln|Betrag)\\b"
 				},
 				{
-					"name": "keyword.operator.new.ddp",
+					"name": "keyword.operator.new.trigo.ddp",
 					"match": "der \\b(Sinus|Kosinus|Tangens|Arkussinus|Arkuskosinus|Arkustangens|Hyperbelsinus|Hyperbelkosinus|Hyperbeltangens)\\b"
 				},
-				{"include": "#bitshift-operator"}
-			]
-		},
-		"bitshift-operator": {
-			"match": "(um) \\d+ (bit nach (?:links|rechts) verschoben)",
-			"captures": {
-				"0": {
-					"name": "constant.numeric.ddp"
-				},
-				"1": {
-					"name": "keyword.operator.new.ddp"
-				},
-				"2": {
-					"name": "keyword.operator.new.ddp"
+				{
+					"name": "keyword.operator.new.bitshift.ddp",
+					"match": "um (\\d+) bit nach (?:links|rechts) verschoben",
+					"captures": {
+						"1": {
+							"name": "constant.numeric.ddp"
+						}
+					}
 				}
-			}
+			]
 		},
 		"type": {
 			"patterns": [
 				{
 					"name": "support.type.ddp",
-					"match": "\\b(die Zahl|die Kommazahl|der Boolean|das Zeichen|die Zeichenkette|die Zahlen|die Kommazahlen|die Booleans|die Zeichen|die Zeichenketten)\\b\\s(\\w+)",
+					"match": "\\b(die Zahl(?:en)?|die Kommazahl(?:en)?|der Boolean|der Buchstabe|der Text|die Booleans|die Buchstaben|die Texte)\\b\\s(\\w+)",
 					"captures": {
 						"2": {
 							"name": "variable.name.ddp"
@@ -159,10 +150,10 @@
 			]
 		},
 		"types-without-Artikel": {
-			"match": "\\b(Zahl|Kommazahl|Boolean|Zeichen|Zeichenkette|Zahlen|Kommazahlen|Zeichenketten|Booleans|Typ)\\b\\s(\\w+)",
+			"match": "\\b(Zahl(?:en)?|Kommazahl(?:en)?|Booleans?|Buchstaben?|Texte?|Typ)\\b\\s(\\w+)",
 			"captures": {
 				"1": {
-					"name": "support.type.ddp"
+					"name": "support.type.no-artikel.ddp"
 				},
 				"2": {
 					"name": "variable.name.ddp"
@@ -190,7 +181,6 @@
 					"match": "wahr|falsch"
 				},
 				{
-					
 					"name": "constant.numeric.ddp",
 					"match": "-?(\\d+,?\\d*)"
 				},

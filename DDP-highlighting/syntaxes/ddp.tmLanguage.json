@@ -123,7 +123,7 @@
 				},
 				{
 					"name": "keyword.operator.new.trigo.ddp",
-					"match": "der \\b(Sinus|Kosinus|Tangens|Arkussinus|Arkuskosinus|Arkustangens|Hyperbelsinus|Hyperbelkosinus|Hyperbeltangens)\\b"
+					"match": "\\b(Sinus|Kosinus|Tangens|Arkussinus|Arkuskosinus|Arkustangens|Hyperbelsinus|Hyperbelkosinus|Hyperbeltangens)\\b"
 				},
 				{
 					"name": "keyword.operator.new.bitshift.ddp",

@@ -3,41 +3,41 @@
 	"name": "DDP",
 	"patterns": [
 		{
-			"include": "#comments"
+			"include": "#kommentare"
 		},
 		{
-			"include": "#keywords"
+			"include": "#schlüsselwörter"
 		},
 		{
 			"include": "#struktur-construktor"
 		},
 		{
-			"include": "#function-call"
+			"include": "#funktion-aufruf"
 		},
 		{
 			"include": "#struktur-definition"
 		},
 		{
-			"include": "#function-definition"
+			"include": "#funktion-definition"
 		},
 		{
-			"include": "#operators"
+			"include": "#operatoren"
 		},
 		{
-			"include": "#type"
+			"include": "#typ"
 		},
 		{
-			"include": "#literals"
+			"include": "#werte"
 		},
 		{
-			"include": "#types-without-Artikel"
+			"include": "#typ-ohne-artikel"
 		},
 		{
 			"include": "#identifiers"
 		}
 	],
 	"repository": {
-		"comments": {
+		"kommentare": {
 			"patterns": [
 				{
 					"name": "comment.line",
@@ -50,7 +50,7 @@
 				}
 			]
 		},
-		"keywords": {
+		"schlüsselwörter": {
 			"patterns": [
 				{
 					"name": "keyword.control.ddp",
@@ -85,7 +85,7 @@
 				}
 			]
 		},
-		"function-call": {
+		"funktion-aufruf": {
 			"begin": "(\\w+)\\(",
 			"beginCaptures": {
 				"1":{
@@ -113,7 +113,7 @@
 				}
 			}
 		},
-		"function-definition": {
+		"funktion-definition": {
 			"begin": "^(die Funktion)",
 			"beginCaptures": {
 				"1": {
@@ -128,17 +128,17 @@
 			},
 			"patterns": [
 				{
-					"include": "#function-call"
+					"include": "#funktion-aufruf"
 				},
 				{
-					"include": "#function-parameters"
+					"include": "#funktion-parameters"
 				},
 				{
-					"include": "#function-type"
+					"include": "#funktion-type"
 				}
 			]
 		},
-		"function-type": {
+		"funktion-type": {
 			"match": "(vom) (Typ \\b(?:Zahl(?:en)?|Kommazahl(?:en)?|Booleans?|Buchstaben?|Texte?)\\b) ",
 			"captures": {
 				"1": {
@@ -149,7 +149,7 @@
 				}
 			}
 		},
-		"operators": {
+		"operatoren": {
 			"patterns": [
 				{
 					"name": "keyword.operator.new.ddp",
@@ -170,7 +170,7 @@
 				}
 			]
 		},
-		"type": {
+		"typ": {
 			"patterns": [
 				{
 					"name": "support.type.ddp",
@@ -191,7 +191,7 @@
 				}
 			]
 		},
-		"types-without-Artikel": {
+		"typ-ohne-artikel": {
 			"match": "\\b(Zahl(?:en)?|Kommazahl(?:en)?|Booleans?|Buchstaben?|Texte?|Typ)\\b\\s(\\w+)",
 			"captures": {
 				"1": {
@@ -206,7 +206,7 @@
 			"match": "\\w+",
 			"name": "variable.name.ddp"
 		},
-		"literals": {
+		"werte": {
 			"patterns": [
 				{
 					"name": "string.quoted.double.ddp",

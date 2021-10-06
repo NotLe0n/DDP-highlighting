@@ -9,7 +9,13 @@
 			"include": "#keywords"
 		},
 		{
+			"include": "#struktur-construktor"
+		},
+		{
 			"include": "#function-call"
+		},
+		{
+			"include": "#struktur-definition"
 		},
 		{
 			"include": "#function-definition"
@@ -65,6 +71,20 @@
 				}
 			]
 		},
+		"struktur-construktor": {
+			"begin": "(\\w+){",
+			"beginCaptures": {
+				"1": {
+					"name": "entity.name.class"
+				}
+			},
+			"end": "}",
+			"patterns": [
+				{
+					"include": "$self"
+				}
+			]
+		},
 		"function-call": {
 			"begin": "(\\w+)\\(",
 			"beginCaptures": {
@@ -78,6 +98,20 @@
 					"include": "$self"
 				}
 			]
+		},
+		"struktur-definition": {
+			"match": "(die Struktur) (\\w+) (beschreibt)",
+			"captures": {
+				"1": {
+					"name": "support.type.struct.ddp"
+				},
+				"2": {
+					"name": "support.class.structname.ddp"
+				},
+				"3": {
+					"name": "keyword.control.ddp"
+				}
+			}
 		},
 		"function-definition": {
 			"begin": "^(die Funktion)",
@@ -144,6 +178,14 @@
 					"captures": {
 						"2": {
 							"name": "variable.name.ddp"
+						}
+					}
+				},
+				{
+					"match": "(die \\w+ Struktur(?:en)?)",
+					"captures": {
+						"1": {
+							"name": "support.class.type.ddp"
 						}
 					}
 				}

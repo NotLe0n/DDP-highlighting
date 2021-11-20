@@ -54,7 +54,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.ddp",
-					"match": "\\b(wenn|dann|sonst|aber|für|jede|solange|mache|macht|zurück|gib|vom|von|bis|mit schrittgröße)\\b"
+					"match": "\\b(wenn|dann|sonst|aber|für|jede|solange|mache|macht|zurück|gib|vom|von|bis|mit Schrittgröße)\\b"
 				},
 				{
 					"name": "meta.preprocessor",
@@ -153,7 +153,7 @@
 			"patterns": [
 				{
 					"name": "keyword.operator.new.ddp",
-					"match": "\\b(oder|und|nicht|plus|minus|mal|durch|modulo|hoch|. wurzel von|logisch|kontra|gleich|ungleich|kleiner als|größer als|kleiner als, oder|größer als, oder|ln|Betrag)\\b"
+					"match": "\\b(oder|und|nicht|plus|minus|mal|durch|modulo|hoch|. wurzel von|logisch|kontra|gleich|ungleich|kleiner als|größer als|kleiner als, oder|größer als, oder|ln|Betrag|Stück)\\b"
 				},
 				{
 					"name": "keyword.operator.new.trigo.ddp",
